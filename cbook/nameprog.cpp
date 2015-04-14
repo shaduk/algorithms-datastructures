@@ -2,7 +2,10 @@
 
 int main() // C++ programs start by executing the function main 
 { 
-    cout << "Hello, World!\n"; // output “Hello, World!” 
+    cout << "Please enter name\n";
+    string first_name;
+    cin >> first_name;
+    cout << "Hello, " << first_name << "!\n";
     keep_window_open();
     return 0; 
     
