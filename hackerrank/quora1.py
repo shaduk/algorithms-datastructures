@@ -2,6 +2,27 @@
 def score(n):
     return n*(n-1)/2
 
+def upvotes(inlist):
+    count1= 1
+    scored1= 0
+    count2=1
+    scored2=0
+    for i in range(0,len(inlist)-1):
+        if inlist[i+1]<inlist[i]:
+            count1 = count1 +1
+            scored2 = scored2 + score(count2)
+            count2 = 1
+        elif inlist[i+1]>inlist[i]:
+            count2 = count2 +1
+            scored1 = scored1 + score(count1)
+            count1 = 1
+        else:
+            count1 = count1 +1
+            count2 = count2 +1 
+    scored1 = scored1 + score(count1)
+    scored2 = scored2 + score(count2)
+    return scored2-scored1
+
 def noninc(inlist):
     count = 1
     scored = 0
