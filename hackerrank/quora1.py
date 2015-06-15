@@ -60,5 +60,5 @@ for i in range(0,n-k+1):
     for x in range(i,i+k):
         list1.append(int(li[x]))
     
-    print nondec(list1)-noninc(list1)
+    print upvotes(list1)
        
