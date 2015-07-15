@@ -4,7 +4,7 @@ using namespace std;
 int multiply(int n,int res[],int res_size)
 {
     int carry = 0;
-    for(int i=0;i<res_size;i++)
+    for(int i=0; i<res_size; i++)
     {   
         int prod = res[i]*n + carry;
         res[i] = prod%10;
@@ -38,13 +38,13 @@ void factorial(int n)
    
    cout << "\n";
    
-    }
+}
 
 
 int main()
 {
-int i,cases,n1;
-   cin >> cases;
+    int i,cases,n1;
+    cin >> cases;
     for(i=0;i<cases;i++)
         {	
             cin >> n1;
