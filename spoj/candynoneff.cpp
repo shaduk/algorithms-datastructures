@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int mod(int n)
-{
-    if(n>0)
-    return n;
-    else
-    return -n;
-}
-
 int main()
 {
     int testcase=0,inputs[testcase],sum=0,ans=0,avg=0;
@@ -24,13 +16,9 @@ int main()
     for(int i = 0; i < testcase;i++)
     {
         cin >> inputs[i]; 
+        sum = sum + inputs[i];
     }
     
-    for(int i = 0; i < testcase;i++)
-    {
-        sum = sum + inputs[i]; 
-    }
-
     avg = sum/testcase;
     
     
