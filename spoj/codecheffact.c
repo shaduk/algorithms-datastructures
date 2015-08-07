@@ -8,7 +8,7 @@ int main()
     scanf("%d",&t);
     while(t--)
     {
-        printf("Enter no to find the factorial\n");
+       printf("Enter no to find the factorial\n");
        scanf("%d",&n);
        a[0]=1;  //initializes array with only 1 digit, the digit 1.
        m=1;    // initializes digit counter
