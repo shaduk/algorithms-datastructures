@@ -11,7 +11,6 @@ string add(string total,string diff,int lentotal,int lendiff)
     int carry = 0,sum = 0;
     for(int i= lentotal-1; i>=0; i--)
     {
-        
         sum = int(total[i])-48 + int(diff[i])-48 + carry;
         ans = to_string(sum%10) + ans;
         carry = sum/10;
@@ -22,11 +21,10 @@ string add(string total,string diff,int lentotal,int lendiff)
     
 }
 
-
 int main()
 {
     string total,diff;
-    int x[500],y[500];
+   
     cin >> total;
     cin >> diff;
     int lentotal = total.length();
