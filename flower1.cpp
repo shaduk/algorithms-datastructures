@@ -66,6 +66,7 @@ int main()
     }
     else
     {
+   
         cout << "Cant divide";
         return 0;
     }
