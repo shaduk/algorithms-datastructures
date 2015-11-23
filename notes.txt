@@ -1,0 +1,4 @@
+ x = (total + diff)/2;
+        y = total - x;
+        cout << x << "\n";
+        cout << y << "\n";

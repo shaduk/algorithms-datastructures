@@ -2,19 +2,27 @@
 using namespace std;
 
 
+int add(string total,string diff){
+    string ans[500];
+    int carry = 0;
+    
+    
+}
+
+
 
 int main()
 {
     int testCases = 10;
     while(testCases--)
     {
-        int x,y,total,diff;
+        string total,diff;
         cin >> total;
         cin >> diff;
-        x = (total + diff)/2;
-        y = total - x;
-        cout << x << "\n";
-        cout << y << "\n";
+        add(total,diff);
+        
+        
     }
+    
     
 }
