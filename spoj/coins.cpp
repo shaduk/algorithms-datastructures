@@ -1,5 +1,9 @@
 #include <iostream>
+#include <map>
 using namespace std;
+
+std::map <long long int, long long int> memo;
+
 
 int main()
 {
@@ -8,14 +12,19 @@ int main()
     {
         int n;
         cin >> n;
-        int sum = (n/4 + n/3 + n/2);
-        if(sum > n)
+        for(int i = 0; i <= n;i++)
         {
-            cout << sum <<endl;
+            int sum = memo[i/2] + memo[i/3] + memo[i/4];
+            
+            if(sum > i)
+            {
+                memo[i] = sum;
+            }
+            else
+            {
+                memo[i] = i;
+            }
         }
-        else
-        {
-            cout << n << endl;
-        }
+        cout << memo[n] << endl;
     }
 }
