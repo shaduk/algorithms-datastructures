@@ -8,30 +8,50 @@ int main()
     cin >> testcases;
     while(testcases--)
     {
-    	int x,n,count;
+    	long long int x,n,count=0;
     	cin >> n;
     	cin >> x;
     
-    	vector<int> values;
+    	vector<long long int> values;
     	while(n--)
     	{
-    		int input;
+    		long long int input;
     		cin >> input;
     		values.push_back(input);
     	}
     	
-    	for(int i = 0;i <= values.size()-3; i++)
+    	for(int i = 0;i < values.size(); i++)
     	{
-    		
-    		if(values[i] + values[i+1] + values[i+2] == x)
+    		long long int sum = values[i];
+    		if(sum == x)
     		{
-    			cout << "YES";
-    			count+=1;
+    				cout << "YES" << endl;
+    				count+=1;
+    				break;
+    		}
+    		else
+    		{
+	    		for(int j = i+1; j < values.size(); j++)
+	    		{
+	    			sum = sum + values[j];
+	    			if(sum == x)
+	    			{
+	    				cout << "YES" << endl;
+	    				count+=1;
+	    				break;
+	    			}
+	    			else if(sum > x)
+	    			break;
+	    		}
+    		}
+    		if(count != 0)
+    		{
+    	    	break;
     		}
     	}
     	if(count == 0)
     	{
-    	    cout << "NO";
+    	    cout << "NO" << endl;
     	}
     }
 }
