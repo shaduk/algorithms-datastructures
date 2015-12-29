@@ -24,6 +24,9 @@
         "@unusedFunctionArgs": "false",
         "@warnLevel": "info"
     },
+    "python": {
+        "@version": "python2"
+    },
     "run": {
         "@path": "/.c9/runners",
         "configs": {
