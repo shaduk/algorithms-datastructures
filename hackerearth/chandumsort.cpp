@@ -5,8 +5,6 @@ using namespace std;
 
 void Merge(int Arr[], int start, int end, int mid)
 {
-   
-    
     int i = start, j = mid + 1; 
     int k = 0;
     int lengthaux = end - start + 1;
@@ -18,36 +16,35 @@ void Merge(int Arr[], int start, int end, int mid)
         {
             Aux[k] = Arr[j];
             k++;
-            
             j++;
         }
         else if(Arr[j] >= Arr[i])
         {
             Aux[k] = Arr[i];
             k++;
-            
             i++;
         }
-            
     }
+    
     while(i <= mid)
     {
         Aux[k] = Arr[i];
         k++;
         i++;
     }
+    
     while(j <= end)
     {
         Aux[k] = Arr[j];
         k++;
         j++;
     }
+    
     for(int l = 0; l < lengthaux; l++)
     {
         Arr[start] = Aux[l];
         start++;
     }
-    
     
 }
 
@@ -60,8 +57,6 @@ void MergeSort(int Arr[], int start, int end)
     Merge(Arr, start, end, mid);
    }
 }
-
-
 
 int main()
 {
@@ -86,7 +81,5 @@ int main()
             cout << Arry[i] << " ";
         }
         cout << endl;
-        
     }
-    
 }
