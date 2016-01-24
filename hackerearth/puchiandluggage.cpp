@@ -19,8 +19,8 @@ void Merge(int Arr[], int start, int end, int mid)
         {
         	count++;
             Aux[k++] = Arr[j++];
-           
         }
+        
         else
         {
         	C[Arr[i]]+=count;
@@ -64,7 +64,6 @@ int main()
 	cin >> test;
 	while(test--)
 	{
-		
 		int noinputs;
 		cin >> noinputs;
 		int array[noinputs] ;
