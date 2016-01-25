@@ -17,6 +17,11 @@ int main()
 		{
 			mid = left + (right - left) / 2;
 			
+			if(c > k)
+			{
+				cout << left << endl;
+				break;
+			}
 			if(a*pow(mid,2) + b*mid + c >= k && a*pow(mid-1,2) + b*(mid-1) + c < k)
 			{
 				cout << mid << endl;
@@ -32,7 +37,7 @@ int main()
 			
 			else if(a*pow(mid,2) + b*mid + c > k)
 			{
-				cout << "test" << test << endl;
+			
 				right = mid - 1;
 			}
 		}
