@@ -30,7 +30,6 @@ int main()
     		q1.pop();
     		q2.pop();
     		ans++;
-    		
     	}
     	else
     	{
@@ -40,7 +39,6 @@ int main()
     		ans++;
     	}
     }
-    
     cout << ans;
     return 0;
     
