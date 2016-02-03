@@ -21,17 +21,27 @@ int main()
     	cin >> entry;
     	q2.push(entry);
     }
+
     
-    while(q1.front() != q2.front() && q1.back() != q2.back())
-    {
-    	
-    	int pop = q1.front();
-    	q1.pop();
-    	q1.push(pop);
-    	ans++;
+    while(q1.size() != 0)
+	{    	
+    	if(q1.front() == q2.front())
+    	{
+    		q1.pop();
+    		q2.pop();
+    		ans++;
+    		
+    	}
+    	else
+    	{
+    		int temp = q1.front();
+    		q1.pop();
+    		q1.push(temp);
+    		ans++;
+    	}
     }
     
-    cout << ans + N;
+    cout << ans;
     return 0;
     
 }
