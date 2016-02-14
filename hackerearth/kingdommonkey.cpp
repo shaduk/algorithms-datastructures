@@ -5,18 +5,26 @@ using namespace std;
 
 vector<long long int> adj[1000000];
 bool visited[1000000];
+long long int bananas[1000000];
+long long int temp = 0, maxi = 0;
 
-void initialize()
+void initialize(long long int N)
 {
-    for(int i = 0;i < 10;++i)
+    for(long long int i = 0;i <= N;++i)
+     	bananas[i] = 0;
+    for(long long int i = 0;i <= N;++i)
      	visited[i] = false;
+    for(long long int i = 0; i <= N; i++)
+    	adj[i].clear();
+    temp = 0; 
+    maxi = 0;
     
 }
 
-void dfs(int i)
+void dfs(long long int i)
 {
    visited[i] = true;
-   
+   temp = temp + bananas[i];
    for(int j = 0; j < adj[i].size(); j++)
    {
        if(visited[adj[i][j]] == false)
@@ -30,27 +38,38 @@ int main()
     cin >> test;
     while(test--)
     {
-    	int N,M, connected = 0;
+    	long long int N,M;
 		cin >> N >> M;
-    	initialize();
+    	initialize(N);
     	
-  		for(int i = 0; i < M; i++)
+  		for(long long int i = 0; i < M; i++)
     	{
-    		int x, y;
+    		long long int x, y;
     		cin >> x >> y;
     		adj[x].push_back(y);
     		adj[y].push_back(x);
     	}
-    
     	
-    	for(int i = 1; i <= N; i++)
+    	for(long long int i = 1; i <= N; i++)
+    	{
+    		long long int a; 
+    		cin >> a;
+    		bananas[i] = a;
+    	}
+    	
+    	for(long long int i = 1; i <= N; i++)
     	{
     		if(visited[i] == false)
     		{
     			dfs(i);
-    			connected++;
+    			if(temp > maxi)
+    			{
+    				maxi = temp;
+    			}
+    			temp = 0;
     		}
     	}
-    	cout << connected << endl;
+    	cout << maxi << endl;
+    	
     }
 }
