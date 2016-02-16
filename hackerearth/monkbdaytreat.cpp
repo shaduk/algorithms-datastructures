@@ -1,3 +1,5 @@
+/* https://www.hackerearth.com/code-monk-graph-theory-i/algorithm/monks-birthday-treat/ */
+
 #include <iostream>
 #include <vector>
 using namespace std;
