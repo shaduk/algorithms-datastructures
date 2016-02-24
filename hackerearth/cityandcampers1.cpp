@@ -2,7 +2,7 @@
 #include <set>
 using namespace std;
 
-
+set<int> myset;
 void initialize(int Camp[], int Size[], int N)
 {
 	for(int i = 1; i <= N; i++)
@@ -14,6 +14,7 @@ void initialize(int Camp[], int Size[], int N)
 	{
 		Size[i] = 1;
 	}
+	myset.insert(1);
 }
 
 int root(int Camp[], int i)
@@ -50,31 +51,38 @@ bool find(int Camp[], int a, int b)
 
 int main()
 {
-    int N, Q;
+    long long int N, Q;
     cin >> N >> Q;
-    set<int> myset;
+  
     int Camp[N+1], Size[N+1];
     initialize(Camp, Size, N);
-    for(int i = 0; i < Q; i++)
+    for(long long int i = 0; i < Q; i++)
     {
     	int a, b;
     	cin >> a >> b;
     	if(find(Camp, a, b))
     	{
-    		cout << *myset.rbegin() - *myset.begin() << " ";
+    		if(myset.size() == N)
+    		{
+    			cout << "0";
+    		}
+    		else
+    		cout << *myset.rbegin() - *myset.begin();
     	}
+
     	else
     	{
-    		myset.clear();
     		weightedunion(Camp, Size, a, b);
-    		for(int j = 1; j <= N; j++)
+    		myset.insert(Size[root(Camp, Camp[a])]);
+    		myset.insert(Size[root(Camp, Camp[b])]);
+    		if(myset.size() == N)
     		{
-				myset.insert(Size[root(Camp, j)]);
+    			cout << "0";
     		}
-    		
-    		cout << *(myset.rbegin()) - *(myset.begin());
+    		else
+			cout << *(myset.rbegin()) - *(myset.begin());
     	}
-    	cout << endl;
+        cout << endl;
     }
     
 }
