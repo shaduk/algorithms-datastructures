@@ -1,45 +1,31 @@
 #include <iostream>
+#include <queue>
 using namespace std;
-
-int largest;
-
-void max_heapify (int Arr[ ], int i, int N)
-{
-    int left = 2*i;                   //left child
-    int right = 2*i +1;           //right child
-    if(left<= N && Arr[left] > Arr[i])
-          largest = left;
-    else
-         largest = i;
-    if(right <= N && Arr[right] > Arr[largest])
-        largest = right;
-    if(largest != i )
-    {
-        swap(Arr[i] , Arr[largest]);
-        max_heapify(Arr, largest,N);
-    } 
-}
-
 
 int main()
 {
-    int N;
+    int N, i = 0;
     cin >> N;
-    int Arr[N+1];
-    for(int i = 1; i <= N; i++)
+    priority_queue<long long int> mypq;
+    while(N--)
     {
     	int input;
     	cin >> input;
-    	Arr[i] = input;
-    	max_heapify(Arr, 1, i);
-    	for(int j = 1; j <= i; j++)
-    	{
-    		cout << Arr[j] << " ";
-    	}
-    	cout << endl;
-    	if(i < 3)
+    	mypq.push(input);
+    	
+    	if( i < 2)
     	cout << "-1" << endl;
     	else
-    	cout << Arr[i]*Arr[i-1]*Arr[i-2] << endl;
+    	{
+    		long long int x = mypq.top();
+    		mypq.pop();
+    		long long int y = mypq.top();
+    		mypq.pop();
+    		long long int z = mypq.top();
+    		mypq.push(y);
+    		mypq.push(x);
+    		cout << x*y*z << endl;
+    	}
+    	i++;
     }
 }
