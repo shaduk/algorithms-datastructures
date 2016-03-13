@@ -36,15 +36,21 @@ int main()
    		}
    		else if(qname == 3)
    		{
-   			while(mymap[maxq.top()] == 0)
+   			while(maxq.size() && mymap[maxq.top()] == 0)
    			maxq.pop();
+   			if(maxq.size())
    			printf("%d\n",maxq.top());
+   			else
+   			printf("-1\n");
    		}
    		else if(qname == 4)
    		{
-   			while(mymap[minq.top()] == 0)
+   			while(minq.size() && mymap[minq.top()] == 0)
    			minq.pop();
+   			if(minq.size())
    			printf("%d\n",minq.top());
+   			else
+   			printf("-1\n");
    		}
    	}
 }
