@@ -1,13 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <queue>
 #include <utility>
 #include <algorithm>
 using namespace std;
 
+class CompareDist
+{
+public:
+    bool operator()(pair<int,int> n1,pair<int,int> n2) {
+        return n1.second<n2.second;
+    }
+};
+
 int main()
 {
 	int C, P, N;
-	vector<std::pair<int,int>> items;
+	priority_queue<pair<int,int>,vector<pair<int,int>>,CompareDist> pq;
+	vector<stack<int>> myvector;
 	cin >> C >> P >> N;
 	for(int i = 1; i <= C; i++)
 	{
@@ -15,22 +26,32 @@ int main()
 		{
 			int input;
 			cin >> input;
-			items.push_back(make_pair(i,input));
+			myvector[i].push(input);
+			pq.push(make_pair(i,input));
 		}
 		else
-		items.push_back(make_pair(i,0));
+		{	myvector[i].push(0);
+			pq.push(make_pair(i,0));
+		}
 	}
-	
-	auto cmp = [](std::pair<int,int> const & a, std::pair<int,int> const & b) 
-	{ 
-    	 return a.second != b.second?  a.second < b.second : a.first > b.first;
-	};
-	
-	std::sort(items.begin(), items.end(), cmp);
-	
-    for(int i = 0; i < N; i++)
+	for(int i = 1; i <= P; i++)
 	{
-		cout << items[i].first << " ";
+		int input, last, seclast, z;
+		cin >> input;
+		int j = pq.top().first;
+		pq.pop();
+		if(myvector[j].size() < 2)
+		{
+			myvector[j].push(input);
+			pq.push(make_pair(j,));
+		}
+		else
+		{
+			last = myvector[j].top();
+			myvector[j].pop();
+			seclast = myvector[j].top();
+			myvector[j].push(last);
+			pq.push(make_pair(j,last+seclast));
+		}
 	}
-    cout << endl;
 }
