@@ -9,22 +9,25 @@ using namespace std;
 class CompareDist
 {
 public:
-    bool operator()(pair<int,int> n1,pair<int,int> n2) {
-        return n1.second<n2.second;
+    bool operator()(pair<long long int,int> n1,pair<long long int,long long int> n2) {
+    	if(n1.second == n2.second)
+    		return n1.first>n2.first;
+        return n1.second>n2.second;
+        
     }
 };
 
 int main()
 {
-	int C, P, N;
-	priority_queue<pair<int,int>,vector<pair<int,int>>,CompareDist> pq;
-	vector<stack<int>> myvector;
+	long long int C, P, N;
+	priority_queue<pair<long long int,long long int>,vector<pair<long long int,long long int>>,CompareDist> pq;
+	vector<stack<long long int>> myvector(100010);
 	cin >> C >> P >> N;
-	for(int i = 1; i <= C; i++)
+	for(long long int i = 1; i <= C; i++)
 	{
-		if(i <= P)
+		if(i <= N)
 		{
-			int input;
+			long long int input;
 			cin >> input;
 			myvector[i].push(input);
 			pq.push(make_pair(i,input));
@@ -34,24 +37,19 @@ int main()
 			pq.push(make_pair(i,0));
 		}
 	}
-	for(int i = 1; i <= P; i++)
+	for(long long int i = 1; i <= P; i++)
 	{
-		int input, last, seclast, z;
+		long long int input, last, size;
 		cin >> input;
-		int j = pq.top().first;
+		long long int j = pq.top().first;
 		pq.pop();
-		if(myvector[j].size() < 2)
-		{
-			myvector[j].push(input);
-			pq.push(make_pair(j,));
-		}
+		cout << j << " ";
+		last = myvector[j].top();
+		myvector[j].push(input);
+		size = myvector[j].size();
+		if(last != 0)
+		pq.push(make_pair(j,size*(last+input)));
 		else
-		{
-			last = myvector[j].top();
-			myvector[j].pop();
-			seclast = myvector[j].top();
-			myvector[j].push(last);
-			pq.push(make_pair(j,last+seclast));
-		}
+		pq.push(make_pair(j,(size-1)*(last+input)));
 	}
 }
