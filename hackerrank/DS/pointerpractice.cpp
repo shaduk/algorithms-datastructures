@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
     int a = 1024;
+    
     int *p;
     p = &a;
     cout << p << " " << *p << endl;
