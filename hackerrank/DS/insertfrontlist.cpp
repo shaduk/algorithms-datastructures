@@ -10,15 +10,25 @@
 */
 Node* Insert(Node *head,int data)
 {
-   Node* temp = new Node();
-    Node* temp2 = head;
-    temp->data = data;
-    temp->next = NULL;
-    while(temp2->next != NULL)
-        {
-        temp2 = temp2->next;
+    if(head == NULL)
+     {
+        Node *temp = head;
+        Node* temp3 = new Node();
+        temp3->data = data;
+        temp3->next = NULL;
+        temp = temp3;
+        return temp;
     }
-    temp->next = temp2->next;
-    temp2->next = temp;
-    return head;
+    else
+    {
+        Node* temp1;
+        temp1 = head;
+        Node* temp2 = new Node();
+        temp2->data = data;
+        temp2->next = NULL;
+        while(temp1->next != NULL)
+            temp1 = temp1->next;
+        temp1->next = temp2;
+            return head;
+    }
 }
