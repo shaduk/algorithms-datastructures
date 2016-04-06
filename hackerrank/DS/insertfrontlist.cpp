@@ -11,22 +11,20 @@ return back the pointer to the head of the linked list in the below method.
 */
 Node* Insert(Node *head,int data)
 {
+    
+    Node* temp = new Node();
+    temp->data = data;
     if(head == NULL)
      {
-        Node* temp3 = new Node();
-        temp3->data = data;
-        temp3->next = NULL; 
-         
-        Node *temp = head;
-        temp = temp3;
-        return temp;
+        temp->next = NULL; 
+        head = temp;
+        return head;
     }
     else
     {
-        Node* temp2 = new Node();
-        temp2->data = data;
-        temp2->next = head;
-        return temp2;
+        temp->next = head;
+        head = temp;
+        return head;
     }
     
 }
