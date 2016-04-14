@@ -10,10 +10,8 @@ struct node
 */
 int height(node * root)
 {
-    
     if(root)
         {
-        
           int left = height(root->left);
           int right = height(root->right);
               
