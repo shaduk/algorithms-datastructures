@@ -2,6 +2,11 @@
 #include <string>
 using namespace std;
 
+int AlphaCode(string s);
+{
+    
+}
+
 int main()
 {
     string input;
