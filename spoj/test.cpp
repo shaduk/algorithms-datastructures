@@ -1,7 +1,11 @@
 #include <iostream>
+#include <string>
+using namespace std;
 
 int main()
 {
-    for(unsigned char i=0; i< 128;i++)
-    std::cout << "hello" << std::endl;
+    string s = "23", j = "123";
+    if(s > j)
+    cout << s << endl;
+    
 }
