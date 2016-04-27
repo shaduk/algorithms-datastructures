@@ -20,7 +20,7 @@ int main()
                 mystack1.push(input);
             else
                 mystack2.push(input);
-            if(!mystack2.empty() && !mystack1.empty() && mystack2.top()-mystack1.top()==1)
+            while(!mystack2.empty() && !mystack1.empty() && mystack2.top()-mystack1.top()==1)
             {
                 mystack1.push(mystack2.top());
                 mystack2.pop();
@@ -33,11 +33,10 @@ int main()
             mystack2.pop();
         }
         
-        while(!mystack1.empty())
-        {
-            cout << mystack1.top() << " ";
-            mystack1.pop();
-        }
+        if(mystack2.empty())
+            cout << "yes";
+        else
+            cout << "no";
         cout << endl;
         cin >> N;
     }
