@@ -15,9 +15,11 @@ void initialize()
 
 void dfs(int i)
 {
+    cout << i << endl;
     visited[i] = true;
-    for(int j = 0; j < myvec.size(); j++)
+    for(int j = 0; j < myvec[i].size(); j++)
     {
+        if(visited[myvec[i][j]] == false)
         dfs(myvec[i][j]);   
     }
 }
@@ -34,6 +36,11 @@ int main()
         myvec[n2].push_back(n1);
     }
     initialize();
-    dfs(1);
+    
+    for(int i = 0; i < N; i++)
+    {
+        if(visited[i] == false)
+        dfs(i);
+    }
     
 }
