@@ -12,11 +12,17 @@ int main(){
         int n;
         int c;
         int m;
-        int total = 0;
         cin >> n >> c >> m;
-        total = n / c;
-        if(total > c)
-            total = total + total/m;
+        int choc = 0, total = 0, wrap = 0;
+        choc = n / c;
+        wrap = choc;
+        total = total + choc;
+        while(wrap >= m)
+            {
+            choc = wrap / m;
+            total = total + choc; 
+            wrap = choc + wrap % m;
+        }
         cout << total << endl;
     }
     return 0;
