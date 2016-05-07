@@ -17,9 +17,9 @@ int main(){
         {
         for(int i = 0; i < n; i++)
          {
-            if(i != 0 && i != n-1)
+            if(i != 0 && i != n-1 && grid_i != 0 && grid_i != n-1)
             {
-            if(grid[grid_i][i-1] < grid[grid_i][i] && grid[grid_i][i+1] < grid[grid_i][i])
+            if(grid[grid_i][i-1] < grid[grid_i][i] && grid[grid_i][i+1] < grid[grid_i][i] && grid[grid_i-1][i] < grid[grid_i][i] && grid[grid_i + 1][i] < grid[grid_i][i])
                 grid[grid_i][i] = 'X';
         }
         }
@@ -30,3 +30,4 @@ int main(){
     }
     return 0;
 }
+
