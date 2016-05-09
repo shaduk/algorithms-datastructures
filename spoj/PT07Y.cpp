@@ -3,7 +3,9 @@
 
 using namespace std;
 vector<int> myvec[1000];
+
 bool visited[1000];
+bool already[1000];
 
 void initialize()
 {
@@ -11,17 +13,28 @@ void initialize()
     {
         visited[i] = false;
     }
+    
+    for(int i = 0; i < 1000; i++)
+    {
+        already[i] = false;
+    }
+    
 }
 
 void dfs(int i)
 {
-    cout << i << endl;
     visited[i] = true;
     for(int j = 0; j < myvec[i].size(); j++)
     {
         if(visited[myvec[i][j]] == false)
         dfs(myvec[i][j]);   
+        else
+        {
+            cout << "No" << endl;
+            return;
+        }
     }
+    
 }
 
 int main()
