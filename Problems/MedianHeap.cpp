@@ -18,7 +18,7 @@ private:
     
     void ShiftUp(int s)
     {
-        if(H[s] < H[s/2])
+        if(s > 1 && H[s] < H[s/2])
         {
             Swap(s, s/2);
             ShiftUp(s/2);
@@ -101,7 +101,7 @@ private:
     
     void ShiftUp(int s)
     {
-        if(H[s] > H[s/2])
+        if(s > 1 && H[s] > H[s/2])
         {
             Swap(s, s/2);
             ShiftUp(s/2);
@@ -129,6 +129,7 @@ public:
         H[size] = value;
         ShiftUp(size);
     }
+    
     
     int extractmax()
     {
@@ -177,11 +178,13 @@ class MedianHeap{
         if(minheap.getsize()-maxheap.getsize() > 1)
         {
             int temp = minheap.extractmin();
+            
             maxheap.insert(temp);
         }
         else if(maxheap.getsize()-minheap.getsize() > 1)
         {
             int temp = maxheap.extractmax();
+            
             minheap.insert(temp);
         }
     }
@@ -202,7 +205,7 @@ public:
     
     int median()
     {
-       if(minheap.getsize() >= maxheap.getsize())
+       if(minheap.getsize() > maxheap.getsize())
             return minheap.getmin();
         else
             return maxheap.getmax();
@@ -220,23 +223,28 @@ int main()
 {
     MedianHeap medheap;
     medheap.add(5);
+
     cout << medheap.median() << endl;
     medheap.add(10);
+
     cout << medheap.median() << endl;
     medheap.add(7);
+
     cout << medheap.median() << endl;
     medheap.add(1);
-    medheap.Print();
+
     cout << medheap.median() << endl;
     medheap.add(6);
-    medheap.Print();
+
     cout << medheap.median() << endl;
     medheap.add(9);
-    medheap.Print();
+
     cout << medheap.median() << endl;
     medheap.add(12);
+
     cout << medheap.median() << endl;
     medheap.add(13);
     cout << medheap.median() << endl;
-    medheap.Print();
+    
+    
 }
