@@ -50,16 +50,10 @@ int main()
                 break;
             }
         }
+        if(flag)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
         
-        cout << flag << endl;
-        
-       /* for(int i = 0; i < N; i++)
-        {
-            for(int j = 0; j <= S; j++)
-            {
-                cout << opt[A[i]][j] << " ";
-            }
-            cout << endl;
-        } */
     }
 }
