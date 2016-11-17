@@ -15,7 +15,7 @@ public class FirstNonRepeatChar
     public static Character FirstNonRepeat(String s)
     {
          Hashtable<Character, Integer> numbers = new Hashtable<Character, Integer>();
-         ArrayList<Character> order = new ArrayList<>();
+         
          for(int i = 0; i < s.length(); i++)
          {
              Character curr = s.charAt(i);
@@ -27,13 +27,12 @@ public class FirstNonRepeatChar
              else
              {
                  numbers.put(curr, 1);
-                 order.add(curr);
              }
          }
-         for(int i = 0; i < order.size(); i++)
+         for(int i = 0; i < s.length(); i++)
          {
-             if(numbers.get(order.get(i)) == 1)
-             return order.get(i);
+             if(numbers.get(s.charAt(i)) == 1)
+             return s.charAt(i);
          }
          return '0';
     }
