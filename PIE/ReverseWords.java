@@ -14,13 +14,16 @@ public class ReverseWords
     
     public static String reverse(String str)
     {
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         String[] ary = str.split(" ");
         for(int i = ary.length-1; i >= 0; i--)
         {
-            ans = ans + ary[i]+ " ";
+            if(i!=0)
+            ans = ans.append(ary[i]).append(" ");
+            else
+            ans = ans.append(ary[i]);
         }
-        return ans;
+        return ans.toString();
     }
     
     public static void main(String[] args) throws IOException {
