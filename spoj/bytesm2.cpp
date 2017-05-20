@@ -45,14 +45,9 @@ int main()
                     if (j-1 != -1) n2 = input + store[i-1][j-1];
                     if (j+1 != cols) n3 = input + store[i-1][j+1];
                     store[i][j] = maximum(n1, n2, n3);
+                    if(store[i][j] > ans) ans = store[i][j];
                 }
             }
-        }
-
-        for(int i = 0; i < cols; i++) 
-        {
-            if(store[rows-1][i] > ans)
-            ans = store[rows-1][i];
         }
         cout << ans << endl;
     }
