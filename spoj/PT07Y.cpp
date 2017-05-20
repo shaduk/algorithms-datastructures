@@ -18,7 +18,6 @@ void initialize()
     {
         already[i] = false;
     }
-    
 }
 
 void dfs(int i)
@@ -48,6 +47,7 @@ int main()
         myvec[n1].push_back(n2);
         myvec[n2].push_back(n1);
     }
+    
     initialize();
     
     for(int i = 0; i < N; i++)
@@ -55,5 +55,4 @@ int main()
         if(visited[i] == false)
         dfs(i);
     }
-    
 }
