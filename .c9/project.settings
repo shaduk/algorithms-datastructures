@@ -20,6 +20,7 @@
             "@indent_inner_html": false,
             "@jslinthappy": "false",
             "@keeparrayindentation": "false",
+            "@preserve-inline": true,
             "@preserveempty": "true",
             "@space_before_conditional": "true",
             "@unescape_strings": "true"
